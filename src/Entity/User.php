@@ -37,6 +37,11 @@ class User
      */
     private $createdAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Avatar::class)
+     */
+    private $avatar;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class User
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getAvatar(): ?Avatar
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?Avatar $avatar): self
+    {
+        $this->avatar = $avatar;
 
         return $this;
     }
